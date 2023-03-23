@@ -19,7 +19,7 @@ function Homepage() {
       <section className="Home__title">
         <h1>
           Welcome [<span className="magic-effect">Human</span>]! you can check a
-          product or press <span className="magic-effect">' i '</span> to
+          product or press '<span className="magic-effect"> i </span>' to
           know more about my creator
         </h1>
       </section>
@@ -41,7 +41,7 @@ function Homepage() {
         style={{ display: loading ? "none" : "flex" }}
       >
         {productsArr.map((product) => {
-          return <ProductCard product={product} />;
+          return <ProductCard key = {product.id} product={product} />;
         })}
       </section>
     </main>

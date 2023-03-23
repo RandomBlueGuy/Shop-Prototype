@@ -13,23 +13,25 @@ export const fetchDataSlice = createSlice({
     error: null,
   },
   reducers: {
-    POSTS_SUCCESS: (state, action) => {
+    postsSuccess: (state, action) => {
       state.productsArr = action.payload;
       if (!state.isTimerSet) {
         state.randomTimer = action.payload.map((item) =>
-          parseInt(state.currentTime / 1000 + Math.random() * 180)
+          (parseInt(state.currentTime / 1000 + Math.random() * 180)) + 30
         );
-        state.randomTimerOriginal = state.randomTimer.map(rTimer => parseInt(rTimer - parseInt(Date.now() / 1000)));
+        state.randomTimerOriginal = state.randomTimer.map((rTimer) =>
+          parseInt(rTimer - parseInt(Date.now() / 1000))
+        );
         state.isTimerSet = true;
       }
       state.loading = false;
       state.error = null;
     },
-    POSTS_LOADING: (state) => {
+    postsLoading: (state) => {
       state.loading = true;
       state.error = null;
     },
-    POSTS_ERROR: (state, action) => {
+    postsError: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
@@ -39,31 +41,30 @@ export const fetchDataSlice = createSlice({
 export const getPosts = () => {
   return async (dispatch, getState) => {
     const isTimerSet = getState().fetchData.isTimerSet;
-///database/fakeApiProducts.json
     if (!isTimerSet) {
-      dispatch({ type: POSTS_LOADING });
+      dispatch({ type: postsLoading });
       try {
-        const response = await axios
+        await axios
           .get("https://fakestoreapi.com/products")
           .then((response) => {
             setTimeout(() => {
-              dispatch({ type: POSTS_SUCCESS, payload: response.data });
+              dispatch({ type: postsSuccess, payload: response.data });
             }, 1000);
           });
       } catch (error) {
-        dispatch({ type: POSTS_ERROR, payload: error.message });
+        dispatch({ type: postsError, payload: error.message });
       }
     } else {
       setTimeout(() => {
         const productsArr = getState().fetchData.productsArr;
-        dispatch({ type: POSTS_SUCCESS, payload: productsArr });
+        dispatch({ type: postsSuccess, payload: productsArr });
       }, 1000);
-      dispatch({ type: POSTS_LOADING });
+      dispatch({ type: postsLoading });
     }
   };
 };
 
-export const { POSTS_SUCCESS, POSTS_LOADING, POSTS_ERROR } =
+export const { postsSuccess, postsLoading, postsError } =
   fetchDataSlice.actions;
 
 export default fetchDataSlice.reducer;

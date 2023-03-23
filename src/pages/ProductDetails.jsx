@@ -1,23 +1,24 @@
 import React from "react";
-import { useEffect } from 'react';
-import { Link, useLocation, useHistory } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBox } from "@fortawesome/free-solid-svg-icons";
-import { redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-
+import { useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function ProductDetails() {
+  const navigate = useNavigate();
   const location = useLocation();
   const product = location.state;
   const specialChars = ["=> ", "> "];
-
   const randomTimer = useSelector((state) => state.fetchData.randomTimer);
 
-useEffect(() => {
-  console.log("CURRENT TIMER PRODUCT", randomTimer)
-},[randomTimer])
+  useEffect(() => {
+    if (product === null) {
+      navigate("/");
+    }
+  }, [product]);
 
+  useEffect(() => {
+    console.log("CURRENT TIMER PRODUCT", randomTimer);
+  }, []);
 
   return (
     <main className="ProductDetails__ctn border--gradient">
@@ -38,8 +39,11 @@ useEffect(() => {
             <div className="ProductCard__exterior--corner upper-right" />
             <div className="ProductCard__exterior--corner bottom-right" />
             <div className="ProductCard__exterior--corner bottom-left" />
-            {/* <FontAwesomeIcon icon={faBox} /> */}
-            <img className='productDetails__image' src={`${product?.image}`} alt="" />
+            <img
+              className="productDetails__image"
+              src={`${product?.image}`}
+              alt=""
+            />
           </figure>
           <div className="extraDetails__btnCtn">
             <Link to="/">
@@ -49,32 +53,46 @@ useEffect(() => {
         </div>
         <div className="extraDetails__txtCtn">
           <p className="extraDetails--obj">
-            <strong>{specialChars[1]}Product name{specialChars[0]}</strong>
-            <span className="extraDetails--value">{product.title}</span>
+            <strong>
+              {specialChars[1]}Product name{specialChars[0]}
+            </strong>
+            <span className="extraDetails--value">{product?.title}</span>
           </p>
           <p className="extraDetails--obj">
-            <strong>{specialChars[1]}Product ID {specialChars[0]}</strong>
-            <span className="extraDetails--value">{product.id}</span>
+            <strong>
+              {specialChars[1]}Product ID {specialChars[0]}
+            </strong>
+            <span className="extraDetails--value">{product?.id}</span>
           </p>
           <p className="extraDetails--obj">
-            <strong>{specialChars[1]} price{specialChars[0]}</strong>
-            <span className="extraDetails--value">${product.price}</span>
+            <strong>
+              {specialChars[1]} price{specialChars[0]}
+            </strong>
+            <span className="extraDetails--value">${product?.price}</span>
           </p>
           <p className="extraDetails--obj">
-            <strong>{specialChars[1]}Description{specialChars[0]}</strong>
-            <span className="extraDetails--value">${product.description}</span>
+            <strong>
+              {specialChars[1]}Description{specialChars[0]}
+            </strong>
+            <span className="extraDetails--value">${product?.description}</span>
           </p>
           <p className="extraDetails--obj">
-            <strong>{specialChars[1]}Category{specialChars[0]}</strong>
-            <span className="extraDetails--value">{product.category}</span>
+            <strong>
+              {specialChars[1]}Category{specialChars[0]}
+            </strong>
+            <span className="extraDetails--value">{product?.category}</span>
           </p>
           <p className="extraDetails--obj">
-            <strong>{specialChars[1]}Rating{specialChars[0]}</strong>
-            <span className="extraDetails--value">{product.rating.rate}</span>
+            <strong>
+              {specialChars[1]}Rating{specialChars[0]}
+            </strong>
+            <span className="extraDetails--value">{product?.rating.rate}</span>
           </p>
           <p className="extraDetails--obj">
-            <strong>{specialChars[1]}Ammount in storage{specialChars[0]}</strong>
-            <span className="extraDetails--value">{product.rating.count}</span>
+            <strong>
+              {specialChars[1]}Ammount in storage{specialChars[0]}
+            </strong>
+            <span className="extraDetails--value">{product?.rating.count}</span>
           </p>
         </div>
       </section>

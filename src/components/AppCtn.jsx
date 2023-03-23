@@ -3,7 +3,6 @@ import "../styles/styles.css";
 import { useLocation, Link } from "react-router-dom";
 
 function App__ctn() {
-  // , "_AboutMe_", "_Products"
   const [menuTitle, setMenuTitle] = useState("AESTHETIC");
   const location = useLocation();
   const [buttonDiretion, setButtonDirection]  = useState("/about-me")
@@ -25,9 +24,7 @@ function App__ctn() {
       setButtonDirection("/about-me")
     }
   }, [location])
-  
 
-  console.log("currentLocation =>", location);
   return (
     <div>
       <h1 className="App__title magic-effect">{menuTitle}</h1>

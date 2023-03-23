@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBox } from "@fortawesome/free-solid-svg-icons";
-import { timeAdvance } from "../redux-store/Action-timer/timerSlice";
 
 function ProductCard({ product }) {
   const randomTimer = useSelector((state) => state.fetchData.randomTimer);

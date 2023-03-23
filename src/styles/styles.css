@@ -192,13 +192,7 @@ p {
     4.35rem calc(100% - 1.35rem),
     1.35rem calc(100% - 4.35rem)
   );
-  /* background: radial-gradient(
-    circle,
-    rgba(12, 12, 12, 0.6) 1px,
-    var(--neonBlack) 3px
-  ); */
   background-position: -2% 0%;
-  /* background-size: 1.5rem 1.5rem; */
   background-color: transparent;
   background-size: 10px 10px, 10px 10px, 10px 10px;
   background-position: -1px -1px, -1px -1px, 5px 5px;
