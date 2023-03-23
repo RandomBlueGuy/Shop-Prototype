@@ -5,7 +5,7 @@
 - [A brief introduction](#a-brief-introduction)
 
 - [**TASK #1**](#task-1)
-  - [What is this project?](##What-is-this-project)
+  - [What is this project?](#what-is-this-project)
   - [Usability](#usability)
     - [Tools used](#tools-used)
     - [Basic Commands](#basic-commands)
@@ -75,8 +75,7 @@
       npm start
 
 ## **Screenshots**
-
-[INSERT IMAGES]
+|<img src="https://raw.githubusercontent.com/RandomBlueGuy/Assesment-Frontend-/main/src/assets/Captura%20de%20pantalla%202023-03-22%20142358.png" width=40% height=40%>||<img src="https://raw.githubusercontent.com/RandomBlueGuy/Assesment-Frontend-/main/src/assets/Captura%20de%20pantalla%202023-03-22%20142421.png" width=40% height=40%>|<img src="https://raw.githubusercontent.com/RandomBlueGuy/Assesment-Frontend-/main/src/assets/Captura%20de%20pantalla%202023-03-22%20142446.png" width=40% height=40%>|
 
 ## **Personal review of the project**
 
@@ -120,9 +119,10 @@ Thanks for reading this. I promise I will get better at this as time progresses.
 
 &nbsp;&nbsp;&nbsp;&nbsp;There are multiple tools designed to create wireframes like Sketch, but in my case I tend to design low fidelity wireframes on a board or a piece of paper detailing how the application may look.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Here is an example of a low fidelity wireframe and the final product:
+&nbsp;&nbsp;&nbsp;&nbsp;Here is an example of a low fidelity wireframe I created for this assessment:
 
-[INSERT IMAGES]
+<img src="https://raw.githubusercontent.com/RandomBlueGuy/Assesment-Frontend-/main/src/assets/7da579ad-1a16-44cb-9f1c-6c52fc392a81.jpg" width=40% height=40%>
+
 <br /> <br />
 
 ## _Question #3:_
