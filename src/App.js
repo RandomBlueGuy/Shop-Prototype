@@ -12,7 +12,12 @@ function App() {
       <nav className="App__ctn" />
       <AppCtn />
       <Routes>
-        <Route exact path="/" element={<Homepage />} />
+      <Route
+          exact
+          path="/"
+          element={<Navigate to="/home" />}
+        />
+        <Route exact path="/home" element={<Homepage />} />
         <Route exact path="/details" element={<ProductDetails />}>
           <Route exact path=":id" element={<Homepage />} />
         </Route>
