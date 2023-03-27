@@ -5,8 +5,8 @@ import { useLocation, Link } from "react-router-dom";
 function App__ctn() {
   const [menuTitle, setMenuTitle] = useState("AESTHETIC");
   const location = useLocation();
-  const [buttonDiretion, setButtonDirection]  = useState("/about-me")
- 
+  const [buttonDiretion, setButtonDirection] = useState("/about-me");
+
   useEffect(() => {
     if (location.pathname.includes("details")) {
       setMenuTitle("_Products");
@@ -18,19 +18,23 @@ function App__ctn() {
   }, [location]);
 
   useEffect(() => {
-    if (location.pathname === "/about-me"){
-      setButtonDirection("/")
+    if (location.pathname === "/about-me") {
+      setButtonDirection("/");
     } else {
-      setButtonDirection("/about-me")
+      setButtonDirection("/about-me");
     }
-  }, [location])
+  }, [location]);
 
   return (
     <div>
-      <h1 className="App__title magic-effect">{menuTitle}</h1>
+      <Link to="/">
+        <h1 className="App__title magic-effect">{menuTitle}</h1>
+      </Link>
       <Link to={buttonDiretion}>
         <div className="redirector button--effect">
-          <h1 className="redirector__text ">{buttonDiretion !== "/" ? "i": "⌂"}</h1>
+          <h1 className="redirector__text ">
+            {buttonDiretion !== "/" ? "i" : "⌂"}
+          </h1>
         </div>
       </Link>
     </div>

@@ -809,6 +809,58 @@ p {
   top: 110%;
 }
 
+.page404-ctn {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--Main-BG);
+}
+
+.page404-ctn-title {
+  font-size: calc(20vw + 20vh + 8vmin);
+  line-height: 0.8;
+  user-select: none;
+  line-height: 0.5;
+}
+
+.page404-ctn-coloreffect {
+ /* animation: background-pan1 3s linear infinite;
+  background: linear-gradient(
+    to right,
+    rgb(65, 104, 167),
+    rgb(65, 167, 145),
+    rgb(152, 167, 65),
+    rgb(167, 128, 65),
+    var(--red-style),
+    rgb(167, 65, 128),
+    rgb(148, 65, 167),
+    rgb(65, 104, 167)
+  );
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap; */
+}
+
+@keyframes background-pan1 {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: -200% center;
+  }
+}
+
+.page404-ctn p {
+  font-size: 25px;
+}
+
 @media (max-width: 900px) {
   .Aboutme__ctn {
     align-items: center;

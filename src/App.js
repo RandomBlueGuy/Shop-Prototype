@@ -1,9 +1,10 @@
 import "./styles/styles.css";
 import Homepage from "./pages/Homepage";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import ProductDetails from "./pages/ProductDetails";
 import AppCtn from "./components/AppCtn";
 import Aboutme from './pages/Aboutme';
+import Page404 from './pages/404';
 
 function App() {
   return (
@@ -16,6 +17,12 @@ function App() {
           <Route exact path=":id" element={<Homepage />} />
         </Route>
         <Route exact path="/about-me" element={<Aboutme />} />
+        <Route
+          exact
+          path="/*"
+          element={<Navigate to="/404-page-not-found" />}
+        />
+        <Route exact path="/404-page-not-found" element={<Page404 />} />
       </Routes>
     </main>
   );

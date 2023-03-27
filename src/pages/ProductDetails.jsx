@@ -1,24 +1,24 @@
 import React from "react";
 import { useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { getPosts } from "../redux-store/Action-fetchdata/fetchdataSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 
 function ProductDetails() {
+  const { id } = useParams();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const product = location.state;
+  // const product = useSelector((state) => state.fetchData.productsArr[id]);
   const specialChars = ["=> ", "> "];
-  const randomTimer = useSelector((state) => state.fetchData.randomTimer);
 
   useEffect(() => {
     if (product === null) {
       navigate("/");
     }
   }, [product]);
-
-  useEffect(() => {
-    console.log("CURRENT TIMER PRODUCT", randomTimer);
-  }, []);
 
   return (
     <main className="ProductDetails__ctn border--gradient">

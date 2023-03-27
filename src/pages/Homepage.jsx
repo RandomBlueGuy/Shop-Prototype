@@ -14,13 +14,27 @@ function Homepage() {
     dispatch(getPosts());
   }, []);
 
+  if (error === true) {
+    return (
+      <main className="Home__ctn border--gradient">
+        <section className="Home__title">
+          <h1>
+          <span className="magic-effect">
+            {error.message}
+          </span>
+          </h1>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="Home__ctn border--gradient">
       <section className="Home__title">
         <h1>
           Welcome [<span className="magic-effect">Human</span>]! you can check a
-          product or press '<span className="magic-effect"> i </span>' to
-          know more about my creator
+          product or press '<span className="magic-effect"> i </span>' to know
+          more about my creator
         </h1>
       </section>
 
@@ -41,7 +55,7 @@ function Homepage() {
         style={{ display: loading ? "none" : "flex" }}
       >
         {productsArr.map((product) => {
-          return <ProductCard key = {product.id} product={product} />;
+          return <ProductCard key={product.id} product={product} />;
         })}
       </section>
     </main>

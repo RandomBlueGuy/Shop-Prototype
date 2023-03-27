@@ -37,15 +37,15 @@ export const fetchDataSlice = createSlice({
     },
   },
 });
-
-export const getPosts = () => {
+///
+export const getPosts = (specificData = "") => {
   return async (dispatch, getState) => {
     const isTimerSet = getState().fetchData.isTimerSet;
     if (!isTimerSet) {
       dispatch({ type: postsLoading });
       try {
         await axios
-          .get("https://fakestoreapi.com/products")
+          .get(`https://fakestoreapi.com/products${specificData}`)
           .then((response) => {
             setTimeout(() => {
               dispatch({ type: postsSuccess, payload: response.data });
